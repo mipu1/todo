@@ -1,6 +1,7 @@
 import { emptyOrRows } from '../helper/utils.js';
 import { pool } from '../helper/db.js';
 import { Router } from 'express';
+import { auth } from '../helper/auth.js';
 
 const router = Router()
 
@@ -13,7 +14,7 @@ router.get('/', (req, res, next) => {
 })
 })
 
-router.post('/create', (req, res, next) => {
+router.post('/create', auth,(req, res, next) => {
 
 
     pool.query('INSERT INTO task (description) values ($1) returning *',
@@ -27,7 +28,7 @@ router.post('/create', (req, res, next) => {
     )
 })
 
-router.delete('/delete/:id', (req, res, next) => {
+router.delete('/delete/:id', auth,(req, res, next) => {
     
     const id = parseInt(req.params.id)
 

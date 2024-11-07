@@ -1,9 +1,10 @@
 import pkg from 'pg';
 import dotent from 'dotenv';
 
+dotent.config()
 const environment = process.env.NODE_ENV
 
-dotent.config()
+
 const { Pool } = pkg
 
 const openDb = () => {
