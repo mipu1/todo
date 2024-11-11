@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-const{ verify } = jwt
+const { verify } = jwt
 const authorizationRequired = "authorization required"
 const invalidCredentials = "invalid credentials"
 
@@ -15,7 +15,7 @@ const auth = (req, res, next) => {
             next()
         } catch(err) {
             res.statusMessage = invalidCredentials
-            res.status(403).json({message: incalidCredentials})
+            res.status(403).json({message: invalidCredentials})
         }
     }
 }
